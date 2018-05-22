@@ -1,0 +1,19 @@
+<div class="login-form">
+  <div class="login-page">
+    <div class="form" >
+      <form class="register-form" *ngIf="registerForm && loginFormStates.register === loginFormState" [formGroup]="registerForm">
+        <input type="text" formControlName="name" placeholder="name*"/>
+        <input type="text" formControlName="email" placeholder="email address*"/>
+        <input type="password" formControlName="password" placeholder="password*"/>
+        <button (click)="register()">create</button>
+        <p class="message">Already registered? <a class="pointer" (click)="switchForm(loginFormStates.signin)">Sign In</a></p>
+      </form>
+      <form *ngIf="signinForm && loginFormStates.signin === loginFormState" [formGroup]="signinForm" class="login-form">
+        <input type="text" formControlName="username" placeholder="username*"/>
+        <input type="password" formControlName="password" placeholder="password*"/>
+        <button (click)="login()">login</button>
+        <p class="message">Not registered? <a class="pointer" (click)="switchForm(loginFormStates.register)">Register</a></p>
+      </form>
+    </div>
+  </div>
+</div>
